@@ -60,7 +60,7 @@ if ($is_refresh) {
     $global_array_admins = nv_wallet_array_admins($module_data);
 }
 
-$IS_FULL_ADMIN = (defined('NV_IS_SPADMIN') or defined('NV_IS_GODADMIN')) ? true : false;
+$IS_FULL_ADMIN = ((defined('NV_IS_SPADMIN') and $global_config['idsite']) or defined('NV_IS_GODADMIN')) ? true : false;
 $PERMISSION_ADMIN = [];
 if (isset($global_array_admins[$admin_info['admin_id']]) and isset($global_array_admin_groups[$global_array_admins[$admin_info['admin_id']]['gid']])) {
     $PERMISSION_ADMIN = $global_array_admin_groups[$global_array_admins[$admin_info['admin_id']]['gid']];
